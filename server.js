@@ -17,6 +17,10 @@ const bootcamps = require("./routes/bootcamps");
 
 // Setup Express app
 const app = express();
+
+// Use Bodyparser
+app.use(express.json());
+
 const PORT = process.env.PORT || 5000;
 
 // Setting up dev logging middleware
