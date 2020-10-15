@@ -1,7 +1,7 @@
 "use strict";
 
 const ErrorResponse = require("../utils/ErrorResponse");
-const asyncHandler = require("../middleware/async");
+const asyncHandler = require("../middleware/asyncHandler");
 const Course = require("../models/Course");
 
 // @description     Get all courses.
