@@ -35,7 +35,7 @@ const ReviewSchema = new mongoose.Schema({
 });
 
 // Static method to get average rating and save.
-ReviewSchema.statics.getAverageReview = async function (bootcampId) {
+ReviewSchema.statics.getAverageRating = async function (bootcampId) {
   const obj = await this.aggregate([
     {
       $match: { bootcamp: bootcampId },
@@ -47,15 +47,15 @@ ReviewSchema.statics.getAverageReview = async function (bootcampId) {
       },
     },
   ]);
-};
 
-try {
-  await this.model("Bootcamp").findByIdAndUpdate(bootcampId, {
-    averageRating: obj[0].averageRating,
-  });
-} catch (err) {
-  console.error(err);
-}
+  try {
+    await this.model("Bootcamp").findByIdAndUpdate(bootcampId, {
+      averageRating: obj[0].averageRating,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 // Call getAverageRating after save
 ReviewSchema.post("save", function () {
