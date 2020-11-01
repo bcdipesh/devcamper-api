@@ -16,7 +16,7 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please add number of weeks"],
   },
-  tution: {
+  tuition: {
     type: Number,
     required: [true, "Please add a tuition cost"],
   },
