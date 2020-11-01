@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const User = require("../models/User");
 const ErrorResponse = require("../utils/ErrorResponse");
 const asyncHandler = require("../middleware/asyncHandler");
-const sendEmail = require("../utils/em");
+const sendEmail = require("../utils/sendEmail");
 
 const authController = {};
 
