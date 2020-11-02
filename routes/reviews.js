@@ -14,7 +14,7 @@ const Review = require("../models/Review");
 const router = express.Router({ mergeParams: true });
 
 const advancedResults = require("../middleware/advancedResults");
-const auth = require("../middleware/auth");
+const { protect, authorize } = require("../middleware/auth");
 
 router
   .route("/")

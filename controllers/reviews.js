@@ -26,8 +26,8 @@ exports.getReviews = asyncHandler(async (req, res, next) => {
 // @description Get a single review
 // @route       GET /api/v1/reviews/:id
 // @access      Public
-exports.getReivew = asyncHandler(async (req, res, next) => {
-  const review = await (await Review.findById(req.params.id)).populated({
+exports.getReview = asyncHandler(async (req, res, next) => {
+  const review = await Review.findById(req.params.id).populated({
     path: "bootcamp",
     select: "name, description",
   });
