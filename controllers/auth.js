@@ -65,6 +65,21 @@ authController.getMe = asyncHandler(async (req, res, next) => {
   });
 });
 
+// @description Log out user / clear cookie
+// @route       GET /api/v1/auth/logout
+// @access      Private
+authController.logout = asyncHandler(async (req, res, next) => {
+  res.cookie("token", "none", {
+    expires: new Date(Date.now() + 10 * 10000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+});
+
 // @description Forgot password
 // @route       GET /api/v1/auth/forgotPassword
 // @access      Public
